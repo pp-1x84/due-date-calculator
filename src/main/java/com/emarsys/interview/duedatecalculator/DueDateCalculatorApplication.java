@@ -1,13 +1,15 @@
 package com.emarsys.interview.duedatecalculator;
 
-/**
- * Hello world!
- *
- */
+import com.emarsys.interview.duedatecalculator.interfaces.impl.DueDateCalculatorInterfaceImpl;
+
 public class DueDateCalculatorApplication 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        DueDateCalculatorInterfaceImpl calculator = new DueDateCalculatorInterfaceImpl();
+        
+        String result = calculator.calculateDueDate();
+        
+        System.out.println(result);
     }
 }
