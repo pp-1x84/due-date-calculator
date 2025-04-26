@@ -1,7 +1,7 @@
-package com.emarsys.interview.duedatecalculator.interfaces;
+package com.emarsys.interview.duedatecalculator;
 
 import java.time.LocalDateTime;
 
-public interface DueDateCalculatorInterface {
+public interface DueDateCalculator {
     LocalDateTime calculateDueDate(LocalDateTime submitDateTime, int turnaroundTime);
 }
