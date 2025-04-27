@@ -1,4 +1,4 @@
-package com.emarsys.interview.duedatecalculator;
+package com.emarsys.interview.calculator;
 
 import java.util.stream.Stream;
 
@@ -13,9 +13,9 @@ import java.time.Month;
 /**
  * Unit test for simple App.
  */
-public class DueDateCalculatorInterfaceImplTest {
+public class DueDateCalculatorImplTest {
     @ParameterizedTest
-    @MethodSource("provideDueDateCalculatorHappyPathScenarios")
+    @MethodSource("provideHappyPathScenarios")
     public void test_calculateDueDate_happyPath(String condition, LocalDateTime submitDateTime, int turnaroundTime, LocalDateTime expectedDueDate) {
         DueDateCalculatorImpl calculator = new DueDateCalculatorImpl();
 
@@ -24,14 +24,14 @@ public class DueDateCalculatorInterfaceImplTest {
     }
 
     @ParameterizedTest
-    @MethodSource("provideDueDateCalculatorExceptionScenarios")
+    @MethodSource("provideExceptionScenarios")
     public void test_calculateDueDate_exception(String condition, LocalDateTime submitDateTime, int turnaroundTime, Class<? extends Throwable> exceptionClass) {
         DueDateCalculatorImpl calculator = new DueDateCalculatorImpl();
         
         Assertions.assertThrows(exceptionClass, () -> calculator.calculateDueDate(submitDateTime, turnaroundTime), condition);
     }
 
-    private static Stream<Arguments> provideDueDateCalculatorHappyPathScenarios() {
+    private static Stream<Arguments> provideHappyPathScenarios() {
         return Stream.of(
             Arguments.of(
                 "Happy Path Test 1: Zero turnaround",
@@ -78,7 +78,7 @@ public class DueDateCalculatorInterfaceImplTest {
         );
     }
 
-    private static Stream<Arguments> provideDueDateCalculatorExceptionScenarios() {
+    private static Stream<Arguments> provideExceptionScenarios() {
         return Stream.of(
             Arguments.of(
                 "Exception Test 1: submitDateTime falls within non-working hours",

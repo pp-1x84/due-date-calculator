@@ -1,11 +1,16 @@
 # Due Date Calculator
 
-This is a Due Date Calculator application created for the <a href="https://emarsys.com/">Emarsys</a> take home assessment. This application returns a due date based on the provided submission timestamp and turnaround time.
+This is a Due Date Calculator module created for the <a href="https://emarsys.com/">Emarsys</a> take home assessment.
 
-# Tech Stack for service
+This module exposes the following public method:
+```java
+LocalDateTime calculateDueDate(LocalDateTime submitDateTime, int turnaroundTime);
+```
 
-Written in [Java](https://www.java.com/en/)
+## Tech Stack
 
-Unit testing is done with [JUnit](https://junit.org/junit5/)
+* Written in [Java](https://www.java.com/en/)
 
-Dependency management is done with [Apache Maven](https://maven.apache.org/)
+* Unit testing is done with [JUnit](https://junit.org/junit5/)
+
+* Dependency management is done with [Apache Maven](https://maven.apache.org/)
