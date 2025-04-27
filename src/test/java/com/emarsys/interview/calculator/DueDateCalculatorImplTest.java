@@ -11,12 +11,12 @@ import java.time.LocalDateTime;
 import java.time.Month;
 
 /**
- * Unit test for simple App.
+ * Test class for DueDateCalculatorImpl
  */
 public class DueDateCalculatorImplTest {
     @ParameterizedTest
     @MethodSource("provideHappyPathScenarios")
-    public void test_calculateDueDate_happyPath(String condition, LocalDateTime submitDateTime, int turnaroundTime, LocalDateTime expectedDueDate) {
+    public void test_calculateDueDate_succeeds(String condition, LocalDateTime submitDateTime, int turnaroundTime, LocalDateTime expectedDueDate) {
         DueDateCalculatorImpl calculator = new DueDateCalculatorImpl();
 
         LocalDateTime result = calculator.calculateDueDate(submitDateTime, turnaroundTime);
@@ -25,7 +25,7 @@ public class DueDateCalculatorImplTest {
 
     @ParameterizedTest
     @MethodSource("provideExceptionScenarios")
-    public void test_calculateDueDate_exception(String condition, LocalDateTime submitDateTime, int turnaroundTime, Class<? extends Throwable> exceptionClass) {
+    public void test_calculateDueDate_throwsException(String condition, LocalDateTime submitDateTime, int turnaroundTime, Class<? extends Throwable> exceptionClass) {
         DueDateCalculatorImpl calculator = new DueDateCalculatorImpl();
         
         Assertions.assertThrows(exceptionClass, () -> calculator.calculateDueDate(submitDateTime, turnaroundTime), condition);
